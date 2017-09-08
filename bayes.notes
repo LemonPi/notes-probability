@@ -9,6 +9,9 @@
 	- useful for calculating effect of evidence
 	- proof
 		- P(X and Y) = P(X|Y)*P(Y) = P(Y|X)*P(X)
+	- P(Y) = sum over i{P(Y|X = xi) * P(X = xi)} for all xi
+		- sum of all possible ways to get Y
+		- over all variables Y is conditioned on
 
 -----------------------------------------------------------
     Bayes Rule
@@ -58,42 +61,40 @@
     Vector form
 -----------------------------------------------------------
 - multiple competing hypothesis H1, H2, ...
-- ex
-	- flip 3 coins and get THT
-		- 1/2 of coins are fair and produce H with .5
-		- 1/3 of coins produce H with .75
-		- 1/6 of coins produce H with .25
-		- calculate each hypothesis (that the coin flipped was from a certain population) together
-		- [1/2 1/3 1/6] * [.5 .25 .75] * [.5 .75 .25] * [.5 .25 .75]
-			- element-wise multiplication
-			= [.0625 .015625 .0234375]
-			->.0625/sum = 8/13 chance of the coin being fair
+- ex flip 3 coins and get THT
+	- 1/2 of coins are fair and produce H with .5
+	- 1/3 of coins produce H with .75
+	- 1/6 of coins produce H with .25
+	- calculate each hypothesis (that the coin flipped was from a certain population) together
+	- [1/2 1/3 1/6] * [.5 .25 .75] * [.5 .75 .25] * [.5 .25 .75]
+		- element-wise multiplication
+		= [.0625 .015625 .0234375]
+		->.0625/sum = 8/13 chance of the coin being fair
 
 -----------------------------------------------------------
     Naive Bayes
 -----------------------------------------------------------
 - assumes all pieces of evidence are independent
-- ex
-	- receive an email containing the phrase "buy rationality"
-		- categories of business, personal, and spam
-		- handle labelled a sample of 100 emails
-			- business <- 50
-			- personal <- 30
-			- spam <- 20
-		- word "buy" appeared in 10 business, 3 personal, and 10 spam emails
-		- word "rationality" appeared in 30 business, 15 personal, and 1 spam email
-		- assume sample frequency is population frequency
-			- 0 probability assigned to unseen words
-			- Good-Turing frequency estimation is better
-		- naive Bayes assumption that the appearance of "buy" is independent to appearance
-		of "rationality" for emails of all types 
-		- prior [5 3 2] (doesn't have to be probabilities; can normalize anytime)
-		- "buy" likelihood [10/50 3/30 10/20] = [1/5 1/10 1/2]
-		- "rationality" likelihood [30/50 15/30 1/20] = [3/5 1/2 1/20]
-		- posterior 
-			= [5 3 2] * [1/5 1/10 1/2] * [3/5 1/2 1/20]
-			= [3/5 3/20 1/20]
-			- [12/16 3/16 1/16] normalize so sum is 1 and terms are probabilities
+- ex receive an email containing the phrase "buy rationality"
+	- categories of business, personal, and spam
+	- handle labelled a sample of 100 emails
+		- business <- 50
+		- personal <- 30
+		- spam <- 20
+	- word "buy" appeared in 10 business, 3 personal, and 10 spam emails
+	- word "rationality" appeared in 30 business, 15 personal, and 1 spam email
+	- assume sample frequency is population frequency
+		- 0 probability assigned to unseen words
+		- Good-Turing frequency estimation is better
+	- naive Bayes assumption that the appearance of "buy" is independent to appearance
+	of "rationality" for emails of all types 
+	- prior [5 3 2] (doesn't have to be probabilities; can normalize anytime)
+	- "buy" likelihood [10/50 3/30 10/20] = [1/5 1/10 1/2]
+	- "rationality" likelihood [30/50 15/30 1/20] = [3/5 1/2 1/20]
+	- posterior 
+		= [5 3 2] * [1/5 1/10 1/2] * [3/5 1/2 1/20]
+		= [3/5 3/20 1/20]
+		- [12/16 3/16 1/16] normalize so sum is 1 and terms are probabilities
 
 -----------------------------------------------------------
     Non-naive Bayes
@@ -102,3 +103,17 @@
 of future evidence on the evidence already observed
 - problem with naive is evidence is often double counted
 - also naive cannot express the meaning of dependencies
+
+-----------------------------------------------------------
+    Belief revision as probability elimination
+-----------------------------------------------------------
+- when given evidence, discard pmf inconsistent with evidence
+- ex left socks somewhere in room
+	- 4/5 chance in random drawer of dresser
+	- dresser has 8 drawers
+	- after checking 6 drawers, haven't found socks
+	- what is probability of finding socks in the next drawer?
+	- initially .2 for not in drawer and .1 for each drawer
+	- removed 6 drawers so remove the .6 pmf
+	- renormalize so .5 not in drawer and .25 for each drawer
+	- thus .25 of finding it in the next drawer
