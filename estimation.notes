@@ -8,3 +8,14 @@
 	point estimate: an estimate that's a single number
 	interval estimate: an estimate that's a range of values in a confidence interval
 	- usually they're complementary
+
+-----------------------------------------------------------
+    Degree of freedom
+-----------------------------------------------------------
+- #df# is the number of independent pieces of information used in an estimate
+- often the estimate is based on another estimate so the df decreases
+	- estimating the population mean with sample mean before estimating variance
+		- each data point used to calculate mean
+		- therefore the difference of each value and the mean are not indep
+	- number of values minus parameters estimated en route
+- ex sample variance has N - 1 df because we estimated population mean
