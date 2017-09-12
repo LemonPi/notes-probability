@@ -1,0 +1,10 @@
+-----------------------------------------------------------
+    Estimation
+-----------------------------------------------------------
+- estimate <population> <parameters> from <sample> <statistics>
+	parameter: value calculated from a population
+	statistic: value calculated from a sample to estimate a parameter
+- an estimate can be a <point estimate> or an <interval estimate>
+	point estimate: an estimate that's a single number
+	interval estimate: an estimate that's a range of values in a confidence interval
+	- usually they're complementary
