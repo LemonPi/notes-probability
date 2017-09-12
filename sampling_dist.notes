@@ -1,0 +1,33 @@
+-----------------------------------------------------------
+    Sampling Distributions
+-----------------------------------------------------------
+- a distribution of some statistic on a set of samples of a fixed size
+	- requires infinite samples
+	- theoretic because we can't collect infinite samples
+	- each statistic has its own sampling Distribution
+		- sampling distribution of the mean (normal)
+		- sampling distribution of r (skewed)
+- each sample size has its own sampling distribution
+	- distribution shape will be different
+- in practice, we collect sample data and from that estimate parameters of the sampling distribution
+- the stdev of the sampling distribution is called the #standard error#
+	- for the mean (and some other statistics), stdev_standard^2 = stdev^2 / N
+
+-----------------------------------------------------------
+    Sampling distribution of correlation coefficient
+-----------------------------------------------------------
+- rho is population correlation coefficient, r is the sample's
+- N (sample size) is the number of pair of scores
+- distribution is skewed because rho is constrained within [-1,1]
+	- the greater the magnitude of rho the more pronounced the skew
+	- rho = 0 is not skewed
+- need to transform r to a normal variable with known standard error
+	- Fischer developed z' = 0.5 ln[(1+r) / (1-r)]
+	- ! standard error = 1/sqrt(N - 3)
+- ex P of getting r >= 0.75 in a sample of 12 from a population rho of 0.6
+	- z' = 0.693 for r = 0.6
+	- z' = 0.973 for r = 0.75
+	- standard error = 0.333
+	- reduces down to normal with mean on 0.693 with stdev of 0.333
+	- z = (x - mean)/stdev = (0.973 - 0.693)/0.333 = 0.841
+	- P(Z >= 0.841) = 0.20
