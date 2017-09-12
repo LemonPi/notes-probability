@@ -1,0 +1,14 @@
+-----------------------------------------------------------
+    Sampling Distributions
+-----------------------------------------------------------
+- a distribution of some statistic on a set of samples of a fixed size
+	- requires infinite samples
+	- theoretic because we can't collect infinite samples
+	- each statistic has its own sampling Distribution
+		- sampling distribution of the mean (normal)
+		- sampling distribution of r (skewed)
+- each sample size has its own sampling distribution
+	- distribution shape will be different
+- in practice, we collect sample data and from that estimate parameters of the sampling distribution
+- the stdev of the sampling distribution is called the #standard error#
+	- for the mean (and some other statistics), stdev_standard^2 = stdev^2 / N
