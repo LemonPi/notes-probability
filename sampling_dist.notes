@@ -31,3 +31,25 @@
 	- reduces down to normal with mean on 0.693 with stdev of 0.333
 	- z = (x - mean)/stdev = (0.973 - 0.693)/0.333 = 0.841
 	- P(Z >= 0.841) = 0.20
+
+-----------------------------------------------------------
+    Bias
+-----------------------------------------------------------
+- #bias# refers to whether an estimator systemically over or under estimates the parameter
+	- characteristic of point estimates
+- biased if long-term average of statistic is not the estimated parameter
+	- mean of sampling distribution of the statistic is not equal to the parameter
+		- mean of sampling distribution is the statistic's <expected value>
+- ex sample mean is an unbiased estimate of population mean
+- ex sum{(x - sample mean)^2}/N is a biased esimate for population variance
+	- sum{(x - sample mean)^2}/(N - 1) is an unbiased estimate for population var
+
+
+-----------------------------------------------------------
+    Sampling variability
+-----------------------------------------------------------
+- how much the statistic varies between samples
+- measured by its <standard error>
+- smaller standard error statistics are more #efficient#
+	- #relative efficiency# is the ratio of their standard errors
+		- sometimes the ratio of the standard errors squared
