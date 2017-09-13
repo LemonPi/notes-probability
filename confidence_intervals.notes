@@ -1,0 +1,12 @@
+-----------------------------------------------------------
+    Confidence intervals
+-----------------------------------------------------------
+- interval estimate that reveals uncertainty associated with point estimate
+- an interval of values that will contain the population mean X % of the time
+	- typically 95% or 99%
+- if multiple samples taken, 95% of the samples' confidence intervals will contain
+the parameter in their 95% confidence interval
+	- estimate of each sample
+- inf ways to produce 95% confidence interval, but the standard method has some nice properties
+	- symmetric about point estimate
+	- contiguous
