@@ -10,3 +10,42 @@ the parameter in their 95% confidence interval
 - inf ways to produce 95% confidence interval, but the standard method has some nice properties
 	- symmetric about point estimate
 	- contiguous
+
+-----------------------------------------------------------
+    Confidence intervals on the mean
+-----------------------------------------------------------
+- central limit theorem
+	- mean of sampling distribution mean is population mean
+	- standard error of the mean: stderr = stdev / sqrt(N)
+		- these are all population values
+		- in symbols sigma_M = sigma / sqrt(N)
+	- sampling distribution of the mean is normal for large N
+	- usually N is said to >30
+	- regardless of population distribution (pretty cool...)
+- lookup z scores for .95
+	- lower = sample mean - z_.95 * stderr
+	- upper = sample mean + z_.95 * stderr
+		- stderr is the population standard error
+	- z_.95 = 1.96
+	- actually for the 97.5th percentile because of symmetry
+- population parameters are used for the definition
+	- we can calculate confidence interval with statistics after
+- ex 5 numbers sampled from normal with stdev of 2.5
+	- (2,3,5,6,9)
+	- M = (2+3+5+6+9)/5 = 5
+	- population stderr = 2.5/sqrt(5) = 1.118
+	- z_.95 = 1.96
+	- lower = 5 - (1.96)(1.118) = 2.81
+	- upper = 5 + (1.96)(1.118) = 7.19
+- should use #t distribution# rather than normal when variance is estimated
+	- look up in table as function of <df>
+	- <df> = N - 1, where N is sample size
+- ex 5 numbers sampled from a normal without knowing stdev
+	- (2,3,5,6,9)
+	- M = 5
+	- estimated variance = s^2 = 7.5
+	- estimated standard error = s_M = s / sqrt(N) = 1.225
+	- lookup t_.95 for df = N - 1 = 4
+		- t_.95 = 2.776
+	- lower = 5 - (2.776)(1.225) = 1.60
+	- upper = 5 + (2.776)(1.225) = 8.40
