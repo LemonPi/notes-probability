@@ -49,3 +49,13 @@ the parameter in their 95% confidence interval
 		- t_.95 = 2.776
 	- lower = 5 - (2.776)(1.225) = 1.60
 	- upper = 5 + (2.776)(1.225) = 8.40
+
+-----------------------------------------------------------
+    Confidence intervals on the correlation
+-----------------------------------------------------------
+- sampling distribution of r is not normally distributed
+- complicated by transforms
+	- convert r to z'
+	- compute confidence interval in terms of z'
+	- convert confidence interval back to r
+	
